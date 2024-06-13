@@ -3,7 +3,7 @@ module Dbhero
     def check_auth
       if Dbhero.authenticate
         unless _current_user && call_custom_auth
-          raise ActionController::RoutingError.new('Forbidden')
+          raise Dbhero.auth_error_class.new('Forbidden')
         end
       end
     end
