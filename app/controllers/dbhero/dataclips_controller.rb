@@ -53,6 +53,10 @@ module Dbhero
 
     def create
       @dataclip = Dataclip.create(dataclip_params.merge(user: user_representation))
+      if @dataclip.errors.any?
+        render :new
+        return
+      end
       respond_with @dataclip, location: edit_dataclip_path(@dataclip),notice: 'Dataclip was successfully created.'
     end
 
