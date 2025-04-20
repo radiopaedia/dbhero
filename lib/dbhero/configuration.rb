@@ -10,7 +10,6 @@ module Dbhero
       :google_api_id,
       :google_api_secret,
       :max_rows_limit,
-      :cached_query_exp,
       :auth_error_class
     ].freeze
 
@@ -22,7 +21,6 @@ module Dbhero
     DEFAULT_CUSTOM_USER_AUTH_CONDITION = nil
     DEFAULT_MAX_ROWS_LIMIT = 10_000
     DEFAULT_CSV_DELIMITER = ','
-    DEFAULT_CACHED_QUERY_EXP = 10.minutes
     DEFAULT_AUTH_ERROR_CLASS = ActionController::RoutingError
 
     attr_accessor *VALID_CONFIG_KEYS
@@ -48,7 +46,6 @@ module Dbhero
       self.custom_user_auth_condition = DEFAULT_CUSTOM_USER_AUTH_CONDITION
       self.max_rows_limit = DEFAULT_MAX_ROWS_LIMIT
       self.csv_delimiter = DEFAULT_CSV_DELIMITER
-      self.cached_query_exp = DEFAULT_CACHED_QUERY_EXP
       self.auth_error_class = DEFAULT_AUTH_ERROR_CLASS
     end
 
